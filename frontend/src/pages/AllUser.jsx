@@ -41,10 +41,10 @@ const AllUser = () => {
     // Header Section
     doc.setFontSize(20);
     doc.setTextColor("#000080");
-    doc.text("Krishan Library", 105, 15, null, null, "center");
+    doc.text("Krishna Library", 105, 15, null, null, "center");
     doc.setFontSize(12);
     doc.text("MohanLalGanj, Lucknow", 105, 22, null, null, "center");
-    doc.text("Contact: 9580815767", 105, 28, null, null, "center");
+    doc.text("Contact: 6387899693", 105, 28, null, null, "center");
 
     // Fee Receipt Title
     doc.setFontSize(14);
@@ -80,7 +80,7 @@ const AllUser = () => {
 
     doc.text(`Address: ${user.address}`, startX, currentY);
     currentY += lineHeight;
-    doc.text(`Joining date: ${user.joinDate}`, startX, currentY);
+    doc.text(`Joining date: ${user.joinDate.slice(0, 10)}`, startX, currentY);
     currentY += lineHeight;
     doc.text(`Month: ${user.month} ${user.year}`, startX, currentY);
     currentY += lineHeight;
