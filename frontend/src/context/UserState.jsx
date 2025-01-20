@@ -3,6 +3,10 @@ import UserContext from "./UserContext";
 import axios from "axios";
 
 const UserState = (props) => {
+  const [login, setLogin] = useState(
+    localStorage.getItem("loginlibarary") || false
+  );
+
   const [monthData, setMonthData] = useState({
     month: "",
     year: "",
@@ -62,6 +66,8 @@ const UserState = (props) => {
         getAllUsers,
         dueFeesUsers,
         dueUsers,
+        login,
+        setLogin,
       }}
     >
       {props.children}

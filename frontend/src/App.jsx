@@ -9,9 +9,12 @@ import AllUser from "./pages/AllUser";
 import FeeDuesUser from "./pages/FeeDuesUser";
 import Seats from "./pages/Seats";
 import DeletedUser from "./pages/DeletedUser";
+import { useContext } from "react";
+import UserContext from "./context/UserContext";
 
 function App() {
-  let login = localStorage.getItem("loginlibarary") || false;
+  let { login } = useContext(UserContext);
+
   return (
     <>
       <BrowserRouter>

@@ -1,10 +1,12 @@
+import UserContext from "@/context/UserContext";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Login = () => {
   const navigate = useNavigate();
+  let { setLogin } = useContext(UserContext);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -29,9 +31,10 @@ const Login = () => {
       );
       if (data.success) {
         toast.success("Login successful");
-        navigate("/");
         localStorage.setItem("token", data.token);
         localStorage.setItem("loginlibarary", true);
+        setLogin(true);
+        navigate("/");
         // Redirect to home page
       } else {
         // alert("Login failed");
