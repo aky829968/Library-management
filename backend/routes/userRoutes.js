@@ -15,18 +15,18 @@ import { adminMiddleware } from "../config/adminMiddleware.js";
 
 const router = express.Router();
 
-router.post("/register", adminMiddleware, register);
+router.post("/register", register);
 router.delete("/delete/:id", deleteUser);
-router.get("/get/:month/:year", adminMiddleware, getAllUsers);
-router.get("/getdue/:month/:year", adminMiddleware, DueFee);
-router.post("/sendEmail/:month/:year/:id", adminMiddleware, sendfeeEmail);
+router.get("/get/:month/:year", getAllUsers);
+router.get("/getdue/:month/:year", DueFee);
+router.post("/sendEmail/:month/:year/:id", sendfeeEmail);
 router.post(
   "/sendEmailRemainder/:month/:year/:id",
-  adminMiddleware,
+
   sendfeeRemainder
 );
-router.post("/update/:id", adminMiddleware, update);
-router.get("/getSeat/:month/:year/:shift", adminMiddleware, seatsAllocated);
+router.post("/update/:id", update);
+router.get("/getSeat/:month/:year/:shift", seatsAllocated);
 router.get("/getAllDelete", getAllDeletedUsers);
 
 export default router;
