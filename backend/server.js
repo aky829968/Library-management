@@ -13,7 +13,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 app.use(
   cors({
-    origin: "https://library-management-six-pearl.vercel.app/",
+    origin: "https://library-management-six-pearl.vercel.app",
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })

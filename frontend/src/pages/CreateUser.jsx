@@ -54,6 +54,7 @@ const CreateUser = () => {
           fatherName: "",
           month: "",
           fees: "",
+          seat: "",
         });
         console.log(data.message);
         toast.success("User created successfully");
@@ -197,22 +198,28 @@ const CreateUser = () => {
           </div>
         </div>
         <div className="w-1/2">
-          <div className="mb-4 flex gap-2">
+          <div className="mb-4 flex gap-2 items-center">
             <div>
-              <label
-                className="block text-gray-700 text-sm font-bold mb-2"
-                htmlFor="joiningDate"
-              >
-                Month
-              </label>
-              <input
-                type="text"
-                name="month"
-                id="month"
+              <select
                 value={formData.month}
                 onChange={handleChange}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              />
+                name="month"
+                className="text-lg rounded  "
+              >
+                <option value="">Select Month</option>
+                <option value="january">January</option>
+                <option value="feburary">Feburary</option>
+                <option value="march">March</option>
+                <option value="april">April</option>
+                <option value="may">May</option>
+                <option value="june">June</option>
+                <option value="july">July</option>
+                <option value="august">August</option>
+                <option value="september">September</option>
+                <option value="october">October</option>
+                <option value="november">November</option>
+                <option value="december">December</option>
+              </select>
             </div>
             <div>
               <label
