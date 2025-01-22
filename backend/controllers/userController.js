@@ -6,7 +6,7 @@ import nodemailer from "nodemailer";
 import deleteModel from "../models/deleteModel.js";
 
 export const register = async (req, res) => {
-  let id = req.user;
+  // let id = req.user;
   // console.log(id);
   // console.log(req.body);
   let {
@@ -64,7 +64,6 @@ export const register = async (req, res) => {
       seat,
       year,
       address,
-      admin: [id],
     });
     let monthe = await monthModel.findOne({ month, year });
     if (!monthe) {
