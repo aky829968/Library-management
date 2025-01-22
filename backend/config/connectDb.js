@@ -2,7 +2,9 @@ import mongoose from "mongoose";
 
 const connetion = () => {
   mongoose
-    .connect("mongodb://localhost:27017/library")
+    .connect(
+      "mongodb+srv://adityakumar262003:6JYzaBRKABPfd4Zw@cluster0.xw2sc.mongodb.net/"
+    )
     .then(() => {
       console.log("Connected to database");
     })

@@ -39,6 +39,12 @@ const Navbar = () => {
             >
               Seats
             </Link>
+            <Link
+              to="/deleteUsers"
+              className="text-white font-semibold hover:text-gray-300"
+            >
+              DeletedUsers
+            </Link>
           </div>
           <div className="md:hidden">
             <button
@@ -103,6 +109,13 @@ const Navbar = () => {
             className="text-white font-semibold hover:text-gray-300"
           >
             Seats
+          </Link>
+          <Link
+            onClick={() => setOpen(!open)}
+            to="/deleteUsers"
+            className="text-white font-semibold hover:text-gray-300"
+          >
+            DeletedUsers
           </Link>
         </div>
       </nav>

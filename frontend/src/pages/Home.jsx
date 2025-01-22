@@ -75,6 +75,9 @@ const Home = () => {
             Set
           </Button>
         </div>
+        <div className="mt-10 text-xl font-semibold">
+          {monthData.month} , {monthData.year}
+        </div>
         <div className="  p-10 flex flex-col justify-center items-center md:flex md:flex-row md:items-center h-full w-full gap-2 ">
           <div
             onClick={() => navigate("/alluser")}

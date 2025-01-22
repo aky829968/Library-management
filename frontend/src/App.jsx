@@ -8,6 +8,7 @@ import { Toaster } from "./components/ui/sonner";
 import AllUser from "./pages/AllUser";
 import FeeDuesUser from "./pages/FeeDuesUser";
 import Seats from "./pages/Seats";
+import DeletedUser from "./pages/DeletedUser";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/alluser" element={<AllUser />} />
           <Route path="/feesdue" element={<FeeDuesUser />} />
           <Route path="/seats" element={<Seats />} />
+          <Route path="/deleteUsers" element={<DeletedUser />} />
         </Routes>
         <Toaster />
       </BrowserRouter>

@@ -20,7 +20,11 @@ const AllUser = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [feeAmount, setFeeAmount] = useState("");
+  const [method, setMethod] = useState();
 
+  const handleMethod = (e) => {
+    setMethod(e.target.value);
+  };
   const openPopup = (user) => {
     setSelectedUser(user);
     setIsPopupOpen(true);
@@ -76,13 +80,13 @@ const AllUser = () => {
 
     doc.text(`Address: ${user.address}`, startX, currentY);
     currentY += lineHeight;
-    doc.text(
-      `Joining date: ${user.joinDate.toLocaleDateString()}`,
-      startX,
-      currentY
-    );
+    doc.text(`Joining date: ${user.joinDate}`, startX, currentY);
     currentY += lineHeight;
     doc.text(`Month: ${user.month} ${user.year}`, startX, currentY);
+    currentY += lineHeight;
+    doc.text(`Seat No. : ${user.seat}`, startX, currentY);
+    currentY += lineHeight;
+    doc.text(`Fees Method : ${method}`, startX, currentY);
     currentY += lineHeight;
 
     // Fee Details
@@ -140,16 +144,17 @@ const AllUser = () => {
   const [form, setForm] = useState({
     newmonth: "",
     newyear: "",
+    joinDate: "",
   });
   const handleForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const updateUsers = async () => {
+  const updateUsers = async (id) => {
     console.log(form);
     console.log(monthData);
     try {
       const response = await axios.post(
-        `http://localhost:3000/user/update/${monthData.month}/${monthData.year}`,
+        `http://localhost:3000/user/update/${id}`,
         form,
         {
           headers: {
@@ -188,57 +193,7 @@ const AllUser = () => {
   };
   return (
     <div className="mt-20">
-      <div className="ml-4 my-2">
-        <Button
-          onClick={() => setPop(true)}
-          variant="outline"
-          className="bg-blue-600 text-white p-2 rounded"
-        >
-          Update Users
-        </Button>
-        {pop && (
-          <div className="popup-overlay">
-            <div className="popup">
-              <h3>Enter Details</h3>
-              <div>
-                <label>Month : </label>
-                <input
-                  type="text"
-                  name="newmonth"
-                  onChange={handleForm}
-                  className="border border-green-600 rounded"
-                />
-              </div>
-              <div className="mt-3">
-                <label>Year : </label>
-                <input
-                  type="number"
-                  name="newyear"
-                  onChange={handleForm}
-                  className="border border-green-600 rounded"
-                />
-              </div>
-              <div className="popup-actions">
-                <button
-                  onClick={() => {
-                    setPop(false);
-                    updateUsers();
-                  }}
-                  className="bg-green-500 text-white p-2 rounded ml-2"
-                >
-                  Submit
-                </button>
-                <button
-                  onClick={() => setPop(false)}
-                  className="bg-red-500 text-white p-2 rounded ml-2"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+      <div className="ml-4 my-2"></div>
       <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
@@ -291,18 +246,75 @@ const AllUser = () => {
                 <TableCell className="text-md font-bold text-blue-800">
                   ₹{user.feeSubmit}
                 </TableCell>
-
-                <TableCell>
-                  <Button
-                    onClick={() => openPopup(user)}
+                <TableCell className="flex gap-1 items-center">
+                  <h2
+                    onClick={() => setPop(true)}
                     variant="outline"
-                    className="  bg-green-600 text-white     p-2 rounded"
+                    className="bg-blue-600 text-white cursor-pointer p-1 rounded-md"
+                  >
+                    Update Users
+                  </h2>
+                  {pop && (
+                    <div className="popup-overlay">
+                      <div className="popup">
+                        <h3>Enter Details</h3>
+                        <div>
+                          <label>Month : </label>
+                          <input
+                            type="text"
+                            name="newmonth"
+                            onChange={handleForm}
+                            className="border border-green-600 rounded"
+                          />
+                        </div>
+                        <div className="mt-3">
+                          <label>Year : </label>
+                          <input
+                            type="number"
+                            name="newyear"
+                            onChange={handleForm}
+                            className="border border-green-600 rounded"
+                          />
+                        </div>
+                        <div className="mt-3">
+                          <label>JoinDate : </label>
+                          <input
+                            type="date"
+                            name="joinDate"
+                            onChange={handleForm}
+                            className="border border-green-600 rounded"
+                          />
+                        </div>
+                        <div className="popup-actions">
+                          <button
+                            onClick={() => {
+                              setPop(false);
+                              updateUsers(user._id);
+                            }}
+                            className="bg-green-500 text-white p-2 rounded ml-2"
+                          >
+                            Submit
+                          </button>
+                          <button
+                            onClick={() => setPop(false)}
+                            className="bg-red-500 text-white p-2 rounded ml-2"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  <h2
+                    onClick={() => openPopup(user)}
+                    className="  text-green-700 cursor-pointer font-bold text-lg "
                   >
                     Pay Fee
-                  </Button>
+                  </h2>
                   <button
                     onClick={() => handleDelete(user._id)}
-                    className="bg-red-500 ml-2  text-white p-2 rounded"
+                    className=" ml-2 text-lg font-bold cursor-pointer text-red-700 "
                   >
                     Delete
                   </button>
@@ -324,6 +336,22 @@ const AllUser = () => {
               onChange={(e) => setFeeAmount(e.target.value)}
               className="fee-input"
             />
+            <div className="flex gap-2 items-center">
+              <label>Cash</label>
+              <input
+                onChange={handleMethod}
+                type="radio"
+                value="Cash"
+                name="method"
+              />
+              <label>Online</label>
+              <input
+                onChange={handleMethod}
+                type="radio"
+                value="Online"
+                name="method"
+              />
+            </div>
             <div className="popup-actions">
               <button
                 onClick={() => generatePdf(selectedUser, feeAmount)}
