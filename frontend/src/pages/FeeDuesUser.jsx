@@ -24,7 +24,7 @@ const FeeDuesUser = () => {
   const sendEmail = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/user/sendEmail/${monthData.month}/${monthData.year}/${id}`,
+        `https://library-management-25fd.onrender.com/user/sendEmail/${monthData.month}/${monthData.year}/${id}`,
         {
           method: "POST",
           headers: {
@@ -45,7 +45,7 @@ const FeeDuesUser = () => {
   const sendEmailReaminder = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/user/sendEmailRemainder/${monthData.month}/${monthData.year}/${id}`,
+        `https://library-management-25fd.onrender.com/user/sendEmailRemainder/${monthData.month}/${monthData.year}/${id}`,
         {
           method: "POST",
           headers: {

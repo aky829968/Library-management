@@ -16,7 +16,7 @@ const Seats = () => {
     console.log(shift);
     try {
       const response = await fetch(
-        `http://localhost:3000/user/getSeat/${monthData.month}/${monthData.year}/${shift}`,
+        `https://library-management-25fd.onrender.com/user/getSeat/${monthData.month}/${monthData.year}/${shift}`,
         {
           method: "GET",
           headers: {

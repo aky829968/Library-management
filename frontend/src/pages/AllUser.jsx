@@ -117,7 +117,7 @@ const AllUser = () => {
     doc.save(`${user.name}_Fee_Slip.pdf`);
     async function fee() {
       let { data } = await axios.post(
-        "http://localhost:3000/fee/payment",
+        "https://library-management-25fd.onrender.com/fee/payment",
         {
           userId: selectedUser._id,
           amount: amount,
@@ -154,7 +154,7 @@ const AllUser = () => {
     console.log(monthData);
     try {
       const response = await axios.post(
-        `http://localhost:3000/user/update/${id}`,
+        `https://library-management-25fd.onrender.com/user/update/${id}`,
         form,
         {
           headers: {
@@ -177,7 +177,7 @@ const AllUser = () => {
   };
   const handleDelete = async (id) => {
     const { data } = await axios.delete(
-      `http://localhost:3000/user/delete/${id}`,
+      `https://library-management-25fd.onrender.com/user/delete/${id}`,
       {
         headers: {
           Authorization: localStorage.getItem("token"),

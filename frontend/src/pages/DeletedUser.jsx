@@ -15,7 +15,7 @@ const DeletedUser = () => {
   const [allUsers, setallUsers] = useState([]);
   const getAllDeleteUsers = async () => {
     const { data } = await axios.get(
-      `http://localhost:3000/user/getAllDelete`,
+      `https://library-management-25fd.onrender.com/user/getAllDelete`,
       {
         headers: {
           Authorization: localStorage.getItem("token"),

@@ -31,7 +31,7 @@ const CreateUser = () => {
     console.log(formData);
     try {
       let { data } = await axios.post(
-        "http://localhost:3000/user/register",
+        "https://library-management-25fd.onrender.com/user/register",
         formData,
         {
           headers: {

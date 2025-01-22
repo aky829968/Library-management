@@ -27,7 +27,7 @@ const Signup = () => {
     console.log(formData);
     try {
       const { data } = await axios.post(
-        "http://localhost:3000/admin/register",
+        "https://library-management-25fd.onrender.com/admin/register",
         formData
       );
       if (data.success) {

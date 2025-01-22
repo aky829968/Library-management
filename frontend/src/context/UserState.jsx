@@ -13,7 +13,7 @@ const UserState = (props) => {
   const getAllUsers = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/user/get/${monthData.month}/${monthData.year}`,
+        `https://library-management-25fd.onrender.com/user/get/${monthData.month}/${monthData.year}`,
         {
           headers: {
             Authorization: localStorage.getItem("token"),
@@ -34,7 +34,7 @@ const UserState = (props) => {
   const dueFeesUsers = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/user/getdue/${monthData.month}/${monthData.year}`,
+        `https://library-management-25fd.onrender.com/user/getdue/${monthData.month}/${monthData.year}`,
         {
           headers: {
             Authorization: localStorage.getItem("token"),
