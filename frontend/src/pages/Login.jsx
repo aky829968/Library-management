@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Login = () => {
@@ -31,6 +31,7 @@ const Login = () => {
         toast.success("Login successful");
         navigate("/");
         localStorage.setItem("token", data.token);
+        localStorage.setItem("loginlibarary", true);
         // Redirect to home page
       } else {
         // alert("Login failed");
@@ -86,6 +87,12 @@ const Login = () => {
           >
             Login
           </button>
+          <h2>
+            Don't have an account?{" "}
+            <Link to="/signup" className="text-blue-700 font-semibold">
+              Register
+            </Link>
+          </h2>
         </form>
       </div>
     </div>

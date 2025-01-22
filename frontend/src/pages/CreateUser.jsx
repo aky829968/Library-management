@@ -16,6 +16,7 @@ const CreateUser = () => {
     year: "",
     fatherName: "",
     seat: "",
+    joinDate: "",
   });
 
   const handleChange = (e) => {
@@ -238,21 +239,39 @@ const CreateUser = () => {
               />
             </div>
           </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="contact"
-            >
-              Contact
-            </label>
-            <input
-              type="number"
-              name="contact"
-              id="contact"
-              value={formData.contact}
-              onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
+          <div className="mb-4 flex items-center gap-3">
+            <div>
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="contact"
+              >
+                Contact
+              </label>
+              <input
+                type="number"
+                name="contact"
+                id="contact"
+                value={formData.contact}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+            <div>
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="contact"
+              >
+                Joining Date
+              </label>
+              <input
+                type="date"
+                name="joinDate"
+                id="joinDate"
+                value={formData.joinDate}
+                onChange={handleChange}
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
           </div>
           <div className="my-9 flex gap-4">
             <label

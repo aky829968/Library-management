@@ -11,6 +11,7 @@ import Seats from "./pages/Seats";
 import DeletedUser from "./pages/DeletedUser";
 
 function App() {
+  let login = localStorage.getItem("loginlibarary") || false;
   return (
     <>
       <BrowserRouter>
@@ -18,12 +19,18 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={login ? <Home /> : <Login />} />
           <Route path="/createuser" element={<CreateUser />} />
-          <Route path="/alluser" element={<AllUser />} />
-          <Route path="/feesdue" element={<FeeDuesUser />} />
-          <Route path="/seats" element={<Seats />} />
-          <Route path="/deleteUsers" element={<DeletedUser />} />
+          <Route path="/alluser" element={login ? <AllUser /> : <Login />} />
+          <Route
+            path="/feesdue"
+            element={login ? <FeeDuesUser /> : <Login />}
+          />
+          <Route path="/seats" element={login ? <Seats /> : <Login />} />
+          <Route
+            path="/deleteUsers"
+            element={login ? <DeletedUser /> : <Login />}
+          />
         </Routes>
         <Toaster />
       </BrowserRouter>

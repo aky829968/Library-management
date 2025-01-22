@@ -22,6 +22,7 @@ export const register = async (req, res) => {
     address,
     year,
     seat,
+    joinDate,
   } = await req.body;
   try {
     if (
@@ -63,6 +64,7 @@ export const register = async (req, res) => {
       month,
       seat,
       year,
+      joinDate,
       address,
     });
     let monthe = await monthModel.findOne({ month, year });

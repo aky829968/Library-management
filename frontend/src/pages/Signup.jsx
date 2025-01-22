@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const Signup = () => {
@@ -53,7 +53,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center mt-10 items-center h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded shadow-md w-full max-w-sm"
@@ -109,6 +109,12 @@ const Signup = () => {
         >
           Signup
         </button>
+        <h2>
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-700 font-semibold">
+            Login
+          </Link>
+        </h2>
       </form>
     </div>
   );
