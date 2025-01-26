@@ -90,11 +90,14 @@ const FeeDuesUser = () => {
         <TableBody>
           {dueUsers?.map((user, idx) => {
             return (
-              <TableRow className="bg-slate-200 border-b-4 border-black" key={user._id}>
+              <TableRow
+                className="bg-slate-200 border-b-4 border-black"
+                key={user._id}
+              >
                 <TableCell className="text-lg font-bold text-blue-800">
                   {idx + 1}
                 </TableCell>
-                <TableCell className="text-md text-red-700 font-semibold">
+                <TableCell className="text-lg text-red-700 font-semibold">
                   {user.name}
                 </TableCell>
                 <TableCell className="text-md text-red-700 font-semibold">
@@ -127,13 +130,13 @@ const FeeDuesUser = () => {
                 <TableCell>
                   <div className=" flex flex-col">
                     <Button onClick={() => sendEmail(user._id)} className="">
-                      Send Email Reaminder
+                      Email Reaminder
                     </Button>
                     <Button
                       onClick={() => sendEmailReaminder(user._id)}
                       className="bg-green-600 hover:bg-green-800"
                     >
-                      Send Email Due
+                      Email Due
                     </Button>
                   </div>
                 </TableCell>

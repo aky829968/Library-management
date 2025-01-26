@@ -219,10 +219,10 @@ const AllUser = () => {
                 className="bg-slate-200 border-b-4 border-black"
                 key={user._id}
               >
-                <TableCell className="text-md font-bold text-red-800">
+                <TableCell className="text-lg font-bold text-red-800">
                   {user.name}
                 </TableCell>
-                <TableCell className="text-lg font-bold text-blue-800">
+                <TableCell className="text-md font-bold text-blue-800">
                   {user.fatherName}
                 </TableCell>
                 <TableCell className="text-md font-bold text-blue-800">
@@ -255,7 +255,7 @@ const AllUser = () => {
                     variant="outline"
                     className="bg-blue-600 text-white cursor-pointer  rounded-md"
                   >
-                    Update Users
+                    Update
                   </h2>
                   {pop && (
                     <div className="popup-overlay">
