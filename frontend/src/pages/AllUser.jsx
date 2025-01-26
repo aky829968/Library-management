@@ -215,11 +215,14 @@ const AllUser = () => {
         <TableBody>
           {allUser?.map((user) => {
             return (
-              <TableRow className="bg-slate-200 border-b-2" key={user._id}>
-                <TableCell className="text-lg font-bold text-red-800">
+              <TableRow
+                className="bg-slate-200 border-b-4 border-black"
+                key={user._id}
+              >
+                <TableCell className="text-md font-bold text-red-800">
                   {user.name}
                 </TableCell>
-                <TableCell className="text-md font-bold text-blue-800">
+                <TableCell className="text-lg font-bold text-blue-800">
                   {user.fatherName}
                 </TableCell>
                 <TableCell className="text-md font-bold text-blue-800">
