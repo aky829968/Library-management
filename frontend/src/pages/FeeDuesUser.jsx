@@ -90,8 +90,8 @@ const FeeDuesUser = () => {
         <TableBody>
           {dueUsers?.map((user, idx) => {
             return (
-              <TableRow key={user._id}>
-                <TableCell className="text-md font-bold text-blue-800">
+              <TableRow className="bg-slate-200 border-b-2" key={user._id}>
+                <TableCell className="text-lg font-bold text-blue-800">
                   {idx + 1}
                 </TableCell>
                 <TableCell className="text-md text-red-700 font-semibold">

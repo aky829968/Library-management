@@ -198,7 +198,7 @@ const AllUser = () => {
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-lg text-black">Name</TableHead>
+            <TableHead className="text-lg text-red-700 ">Name</TableHead>
             <TableHead className="text-lg text-black">FatherName</TableHead>
             <TableHead className="text-lg text-black">Aadhaar</TableHead>
             <TableHead className="text-lg text-black">Contact</TableHead>
@@ -215,8 +215,8 @@ const AllUser = () => {
         <TableBody>
           {allUser?.map((user) => {
             return (
-              <TableRow key={user._id}>
-                <TableCell className="text-md font-bold text-blue-800">
+              <TableRow className="bg-slate-200 border-b-2" key={user._id}>
+                <TableCell className="text-lg font-bold text-red-800">
                   {user.name}
                 </TableCell>
                 <TableCell className="text-md font-bold text-blue-800">
@@ -250,7 +250,7 @@ const AllUser = () => {
                   <h2
                     onClick={() => setPop(true)}
                     variant="outline"
-                    className="bg-blue-600 text-white cursor-pointer p-1 rounded-md"
+                    className="bg-blue-600 text-white cursor-pointer  rounded-md"
                   >
                     Update Users
                   </h2>
